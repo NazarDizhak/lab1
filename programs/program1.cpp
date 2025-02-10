@@ -42,15 +42,15 @@ std::vector<std::string> readFileFullStr(const std::string& file_path){
 
     ss << file.rdbuf();
     std::string string = ss.str();
-    size_t pos = 0;
+    std::size_t pos = 0;
     while (pos < string.length()){
-        size_t new_pos = string.find_first_of(" \t\n\r", pos);
+        std::size_t new_pos = string.find_first_of(" \t\n\r", pos);
         if (new_pos == std::string::npos){
             data.push_back(string.substr(pos));
             break;
         }
         else{
-            data.push_back(string.substr(pos, new_pos));
+            data.push_back(string.substr(pos, new_pos - pos));
             pos = new_pos+1;
         }
     }
@@ -68,15 +68,15 @@ std::vector<std::string> readFileFullRLF(const std::string& file_path) {
 // or std::vector<char>(char_count);
 // or you can use unsigned char or signed char
     in.read(&str[0], str.size());
-    size_t pos = 0;
+    std::size_t pos = 0;
     while (pos < str.length()){
-        size_t new_pos = str.find_first_of(" \t\n\r", pos);
+        std::size_t new_pos = str.find_first_of(" \t\n\r", pos);
         if (new_pos == std::string::npos){
             data.push_back(str.substr(pos));
             break;
         }
         else{
-            data.push_back(str.substr(pos, new_pos));
+            data.push_back(str.substr(pos, new_pos - pos));
             pos = new_pos+1;
         }
     }
@@ -90,15 +90,15 @@ std::vector<std::string> readBadIdea1 (const std::string& file_path){
     auto string = std::string{};
     string.assign(std::istreambuf_iterator<char>{file},
              std::istreambuf_iterator<char>{});
-    size_t pos = 0;
+    std::size_t pos = 0;
     while (pos < string.length()){
-        size_t new_pos = string.find_first_of(" \t\n\r", pos);
+        std::size_t new_pos = string.find_first_of(" \t\n\r", pos);
         if (new_pos == std::string::npos){
             data.push_back(string.substr(pos));
             break;
         }
         else{
-            data.push_back(string.substr(pos, new_pos));
+            data.push_back(string.substr(pos, new_pos - pos));
             pos = new_pos+1;
         }
     }

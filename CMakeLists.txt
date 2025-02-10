@@ -55,7 +55,7 @@ include(cmake/CompilerWarnings.cmake)
 ##########################################################
 
 #! Project main executable source compilation
-add_executable(${PROJECT_NAME} main.cpp
+add_executable(${PROJECT_NAME} cxx_perf_io.cpp
 				options_parser/options_parser.cpp options_parser/options_parser.h
 		programs/program1.cpp
 		programs/program2.cpp
