@@ -5,6 +5,11 @@
 #ifndef LAB1_PRODUCTIVITY__STETSIUK_CHUPA__PROGRAM2_H
 #define LAB1_PRODUCTIVITY__STETSIUK_CHUPA__PROGRAM2_H
 
-
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <charconv>
 
 #endif //LAB1_PRODUCTIVITY__STETSIUK_CHUPA__PROGRAM2_H

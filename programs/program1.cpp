@@ -50,7 +50,7 @@ std::vector<std::string> readFileFullStr(const std::string& file_path){
             break;
         }
         else{
-            data.push_back(string.substr(pos, new_pos));
+            data.push_back(string.substr(pos, new_pos-pos));
             pos = new_pos+1;
         }
     }
@@ -75,10 +75,8 @@ std::vector<std::string> readFileFullRLF(const std::string& file_path) {
             data.push_back(str.substr(pos));
             break;
         }
-        else{
-            data.push_back(str.substr(pos, new_pos));
-            pos = new_pos+1;
-        }
+        data.push_back(str.substr(pos, new_pos-pos));
+        pos = new_pos+1;
     }
 //    data.push_back(str);
     return data;
@@ -98,7 +96,7 @@ std::vector<std::string> readBadIdea1 (const std::string& file_path){
             break;
         }
         else{
-            data.push_back(string.substr(pos, new_pos));
+            data.push_back(string.substr(pos, new_pos-pos));
             pos = new_pos+1;
         }
     }
