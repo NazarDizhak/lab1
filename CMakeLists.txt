@@ -61,7 +61,8 @@ add_executable(${PROJECT_NAME} main.cpp
 		programs/program2.cpp
 		programs/program2.hpp
 		programs/program1.hpp
-		programs/program1.cpp)
+		programs/program1.cpp
+		cxx_perf_conv.cpp)
 
 #! Put path to your project headers
 target_include_directories(${PROJECT_NAME} PRIVATE options_parser)

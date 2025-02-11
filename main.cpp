@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 //    command_line_options_t command_line_options{argc, argv};
 //    std::cout << "A flag value: " << command_line_options.get_A_flag() << std::endl;
     std::vector<std::string> data;
-    data = readFileFullRLF("data/test.txt");
+    data = readFileIdiom("data/test.txt");
     std::cout << data.size() << std::endl;
     return 0;
 }

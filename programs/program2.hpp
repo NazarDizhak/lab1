@@ -12,4 +12,10 @@
 #include <sstream>
 #include <charconv>
 
+std::vector<unsigned> uv_ss(const std::vector<std::string>& input_data);
+std::vector<unsigned> uv_ato(const std::vector<std::string>& input_data);
+std::vector<unsigned> uv_stod(const std::vector<std::string>& input_data);
+std::vector<unsigned> uv_from_chars(const std::vector<std::string>& input_data);
+std::vector<unsigned> uv_sscanf(const std::vector<std::string>& input_data);
+
 #endif //LAB1_PRODUCTIVITY__STETSIUK_CHUPA__PROGRAM2_H
