@@ -52,6 +52,5 @@ std::vector<unsigned> uv_sscanf(const std::vector<std::string>& input_data){
     for (auto nu : output_data){
         sum = sum + nu;
     }
-    printf("%lu", sum);
     return output_data;
 }
