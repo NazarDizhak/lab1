@@ -41,7 +41,7 @@ uint64_t sum_nums(const std::vector<unsigned>& data) {
     for (unsigned num : data) {
         sum += num;
     }
-    return sum;
+    return sum%64;
 }
 
 int main(int argc, char* argv[]) {
