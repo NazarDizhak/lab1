@@ -54,7 +54,18 @@ Here is the graph to visualize the results:
 ![graph1](images/program1_graph.png)
 
 <h2>Program 2 results</h2>
+std::stringstream – This was the slowest by far. Not surprising, since stringstreams are known to be relatively inefficient due to their overhead in parsing and handling streams. The high standard deviation also suggests inconsistent performance, possibly due to internal memory allocations.
 
+<mark> std::atoi() </mark> – Much faster than stringstream, as expected. atoi() is a very basic function that doesn’t handle errors or extra checks, making it quite efficient. The deviation is relatively low, meaning it's consistently fast.
+
+<mark>std::stod()</mark> – This one is slower than atoi(), which makes sense. stod() has to handle floating-point parsing, which is more complex than integer conversion. The standard deviation isn't too high, but it's still noticeable.
+
+<mark>std::from_chars()</mark> – The fastest method. This is exactly what it was designed for—efficient, low-overhead parsing without unnecessary checks or allocations. The standard deviation is small too, meaning it's both fast and stable.
+
+<mark>sscanf()</mark> – Somewhere in the middle. sscanf() is flexible but comes with some overhead from format string parsing. It’s faster than stringstream but not as fast as from_chars().
+
+
+Here is a graph for the results visualization:
 ![graph2](images/program2_graph.png)
 
 # Additional tasks
