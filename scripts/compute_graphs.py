@@ -43,7 +43,7 @@ def plot_execution_stats(csv_file, output_image="execution_stats.png"):
 
     # Labels & Formatting
     ax.set_xlabel("Method")
-    ax.set_ylabel("Execution Time")
+    ax.set_ylabel("Execution Time, ms")
     ax.set_title("Execution Time Comparison by Method")
     ax.set_xticks(x)
     ax.set_xticklabels(methods)
