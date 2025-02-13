@@ -1,26 +1,29 @@
 <mark>Template for your README. Remove all unused parts and instructions</mark>
 
 # Lab work <mark>NUMBER</mark>: <mark>SHORT TOPIC</mark>
-Authors (team): <mark>AUTHORS WITH GITHUB LINKS</mark><br>
+Authors (team):<br> <mark>Orest Chupa - https://github.com/ratatuiii</mark><br> <mark>Nazar Dizhak - https://github.com/NazarDizhak</mark><br> <mark>Kostiantyn Stetsiuk - https://github.com/f1rset</mark><br>
 Variant: <mark>VARIANT SHOULD BE HERE</mark>
 ## Prerequisites
 
-<mark>LIST LIBRARIES/TOOLS/OTHER UTILITIES THAT NEED TO BE INSTALLED (E.G. GCC, OPENMP, CMAKE ETC)</mark>
+<mark>g++, cmake, python3. list of required libraries for python in requirements.txt</mark>
 
 ### Compilation
 
-<mark>HOW TO COMPILE YOUR PROGRAM? (RECOMMENDED: ./compile.sh)</mark>
+<mark>run ./compile.sh in root folder</mark>
 
 ### Installation
 
-<mark>DESCRIBE THE INSTALLATION PROCESS (USE ./dependencies FOLDER)</mark>
-
-<mark>Note: For Python scripts, You must add `requirements.txt` 
-file and add your env to the `.gitignore` file!</mark>
+<mark>just clone the repository</mark>
 
 ### Usage
 
-<mark>PROVIDE AN EXAMPLE OF HOW TO RUN YOUR PROGRAM (IT CAN BE A_flag COMMAND LINE WITH INPUT AND EXPECTED OUTPUT)</mark>
+<mark>In /scripts run the program1_runner or program2_runner. You will get statistics of each method (min time, mean time, deviation) into  your terminal, separated with a "\n" inbetween.</mark> <br>
+<mark> Here is how to these programs: </mark> <br>
+For program1 - "python3 program1_runner.py <datafile> <runs> <clear_cache> <output_csv>"
+
+
+For program2 - "python3 program2_runner.py <datafile> <runs> <output_csv>"
+
 
 <mark>Note: if your project needs or generates any data, media and so on -- put them
 into the data folder</mark> 
