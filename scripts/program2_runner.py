@@ -14,13 +14,11 @@ def flush_os_cache():
     else:
         print("OS cache flushing is not supported on this platform.")
 
-def run_test(progname, datafile, method, runs, clear_cache):
+def run_test(progname, datafile, method, runs):
     times = []
     results = None
     
     for _ in range(runs):
-        if clear_cache:
-            flush_os_cache()
         process = subprocess.run([progname, datafile, str(method)], capture_output=True, text=True)
         output = process.stdout.strip().split("\n")
         
@@ -75,22 +73,21 @@ def write_execution_stats(method_times, output_file):
             stats = compute_statistics(times)
             writer.writerow([method, stats["min"], stats["mean"], stats["stddev"]])
 def main():
-    if len(sys.argv) != 5:
-        print("Usage: python3 program1_runner.py <datafile> <runs> <clear_cache> <output_csv>")
+    if len(sys.argv) != 4:
+        print("Usage: python3 program2_runner.py <datafile> <runs> <output_csv>")
         sys.exit(1)
     
     datafile = sys.argv[1]
     runs = int(sys.argv[2])
-    clear_cache = bool(int(sys.argv[3]))
-    output_csv = sys.argv[4]
+    output_csv = sys.argv[3]
     
-    progname = "../bin/io_exe"
+    progname = "../bin/conv_exe"
     methods = [1, 2, 3, 4, 5]
     
     method_times = {}
     
     for method in methods:
-        method_times[method] = run_test(progname, datafile, method, runs, clear_cache)
+        method_times[method] = run_test(progname, datafile, method, runs)
         stats = compute_statistics(method_times[method])
         
         print(f"{stats['min']}\n" +
