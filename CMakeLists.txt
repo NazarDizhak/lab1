@@ -39,6 +39,7 @@ set(ENABLE_TSan OFF)
 #! MemorySanitizer -- detects uninitialized memory reads
 #  Info: https://github.com/google/sanitizers/wiki/MemorySanitizer
 set(ENABLE_MSAN OFF)
+set(CMAKE_BUILD_TYPE Release)
 
 #! Be default -- build release version if not specified otherwise.
 if (NOT CMAKE_BUILD_TYPE)
@@ -54,18 +55,12 @@ include(cmake/CompilerWarnings.cmake)
 
 #! Project main executable source compilation
 add_executable(io_exe cxx_perf_io.cpp
-                options_parser/options_parser.cpp options_parser/options_parser.h
                 programs/program1.cpp
-                programs/program2.cpp
-                programs/program2.hpp
                 programs/program1.hpp)
 
 add_executable(conv_exe cxx_perf_conv.cpp
-				options_parser/options_parser.cpp options_parser/options_parser.h
-                programs/program1.cpp
                 programs/program2.cpp
-                programs/program2.hpp
-                programs/program1.hpp)
+				programs/program1.cpp)
 
 #! Put path to your project headers
 target_include_directories(io_exe PRIVATE options_parser)
