@@ -34,24 +34,27 @@ For program2 - "python3 program2_runner.py <datafile> <runs> <output_csv>"
 ### Results
 
 <h2>Program 1 results</h2>
-<mark>1. Standard C++ idiom (while(filestream >> word))</mark>
+<mark>1. Standard C++ idiom (while(filestream >> word))</mark> <br>
 This method reads word by word directly from the file stream, which introduces frequent I/O operations. It’s no surprise that it’s the slowest (min: 2037 ms, mean: 2175.8 ms). Each read incurs some overhead, making it inefficient for large files
 
-<mark>2. Reading the entire file into a std::stringstream first</mark>
+<mark>2. Reading the entire file into a std::stringstream first</mark> <br>
 This method avoids frequent disk I/O and speeds things up by ~100ms (min: 2164 ms, mean: 2236.2 ms), though it’s still not the best. The overhead from stringstream operations likely keeps it from performing better.
 
-<mark>3. Reading the entire file into memory as a string, then splitting</mark>
+<mark>3. Reading the entire file into memory as a string, then splitting</mark> <br>
 This one is even faster (min: 1349 ms, mean: 1402.7 ms). It avoids stringstream overhead and works directly with a std::string, making splitting much more efficient. Predictable improvement.
 
-<mark>4. Optimized large-file approach (minimal copying)</mark>
+<mark>4. Optimized large-file approach (minimal copying)</mark> <br>
 This gets even better, although within possible deviation from the previous method (min: 1266 ms, mean: 1342.3 ms). The reduction in unnecessary memory allocations and copying helps a lot. The difference compared to the previous method isn't massive, but it’s noticeable.
 
-<mark>5. Using stream iterators for large files (Bad idea #1)</mark>
+<mark>5. Using stream iterators for large files (Bad idea #1)</mark> <br>
 Surprisingly, this isn't as fast as expected (min: 1862 ms, mean: 1995.5 ms). While stream iterators might seem efficient, they can introduce unexpected overhead due to the way they handle input iterators. This could explain why it's slower than methods 3 and 4. Not really disappointing, considering it was named "bad idea".
 
 
 Here is the graph to visualize the results:
-![My Image](images/program1_graph.png)
+![graph1](images/program1_graph.png)
+
+<h2>Program 2 results</h2>
+![graph2](images/program2_graph.png)
 # Additional tasks
 <mark>IF APPLICABLE, LIST ALL THE EXTRA FEATURES YOU ADDED. PROVIDE DETAILS<mark>
 
