@@ -54,12 +54,12 @@ Here is the graph to visualize the results:
 
 
 
-<mark>As for the flushing, each method became slower. From first to fifth method in respective order - 620ms, 610ms,500ms, 400ms, 700ms</mark>
-Method 1 (while reading word-by-word into a vector): Slowed down significantly since frequent disk access would be required instead of buffering.
-Method 2 (reading whole file into a stringstream): Would also be impacted but slighlty less severely, since it already loads everything into memory at once.
-Method 3 (reading into a string, then splitting): Got slightly slower, if compared to itself witout flushing, as the initial read suffered from flushing, but splitting in-memory wouldn’t change.
-Method 4 (optimized memory reads with minimal copies): Was affected the least since it avoids unnecessary copies and works with pre-allocated memory.
-Method 5 (stream iterators): Became even worse since stream iterators already struggle with efficiency.
+<mark>As for the flushing, each method became slower. From first to fifth method in respective order - 620ms, 610ms,500ms, 400ms, 700ms</mark> <br>
+Method 1 (while reading word-by-word into a vector): Slowed down significantly since frequent disk access would be required instead of buffering.<br>
+Method 2 (reading whole file into a stringstream): Would also be impacted but slighlty less severely, since it already loads everything into memory at once.<br>
+Method 3 (reading into a string, then splitting): Got slightly slower, if compared to itself witout flushing, as the initial read suffered from flushing, but splitting in-memory wouldn’t change.<br>
+Method 4 (optimized memory reads with minimal copies): Was affected the least since it avoids unnecessary copies and works with pre-allocated memory.<br>
+Method 5 (stream iterators): Became even worse since stream iterators already struggle with efficiency.<br>
 
 
 <h2>Program 2 results</h2>
