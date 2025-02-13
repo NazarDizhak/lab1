@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
 
-#! Check every comment after the "#!"
-
 #! CHANGE YOUR PROJECT NAME
 #  It is used as your project's main executable name. 
 set(PROJECT_NAME template)
@@ -55,34 +53,44 @@ include(cmake/CompilerWarnings.cmake)
 ##########################################################
 
 #! Project main executable source compilation
-add_executable(${PROJECT_NAME} cxx_perf_io.cpp
+add_executable(io_exe cxx_perf_io.cpp
+                options_parser/options_parser.cpp options_parser/options_parser.h
+                programs/program1.cpp
+                programs/program2.cpp
+                programs/program2.hpp
+                programs/program1.hpp)
+
+add_executable(conv_exe cxx_perf_conv.cpp
 				options_parser/options_parser.cpp options_parser/options_parser.h
-		programs/program1.cpp
-		programs/program2.cpp
-		programs/program2.hpp
-		programs/program1.hpp
-		programs/program1.cpp
-		cxx_perf_conv.cpp)
+                programs/program1.cpp
+                programs/program2.cpp
+                programs/program2.hpp
+                programs/program1.hpp)
 
 #! Put path to your project headers
-target_include_directories(${PROJECT_NAME} PRIVATE options_parser)
+target_include_directories(io_exe PRIVATE options_parser)
+target_include_directories(conv_exe PRIVATE options_parser)
 
 #! Add external packages
 # options_parser requires boost::program_options library
 find_package(Boost 1.71.0 COMPONENTS program_options system REQUIRED)
-target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIR})
-target_link_libraries(${PROJECT_NAME} Boost::program_options Boost::system)
+target_include_directories(io_exe PRIVATE ${Boost_INCLUDE_DIR})
+target_include_directories(conv_exe PRIVATE ${Boost_INCLUDE_DIR})
+
+target_link_libraries(io_exe Boost::program_options Boost::system)
+target_link_libraries(conv_exe Boost::program_options Boost::system)
 
 ##########################################################
 # Fixed CMakeLists.txt part
 ##########################################################
 
 INSTALL(PROGRAMS
-		$<TARGET_FILE:${PROJECT_NAME}> # ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
+		$<TARGET_FILE:io_exe> 
+        $<TARGET_FILE:conv_exe>
 		DESTINATION bin)
 
 # Define ALL_TARGETS variable to use in PVS and Sanitizers
-set(ALL_TARGETS ${PROJECT_NAME})
+set(ALL_TARGETS io_exe conv_exe)
 
 # Include CMake setup
 include(cmake/main-config.cmake)
