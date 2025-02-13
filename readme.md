@@ -54,7 +54,7 @@ Here is the graph to visualize the results:
 ![graph1](images/program1_graph.png)
 
 <h2>Program 2 results</h2>
-std::stringstream – This was the slowest by far. Not surprising, since stringstreams are known to be relatively inefficient due to their overhead in parsing and handling streams. The high standard deviation also suggests inconsistent performance, possibly due to internal memory allocations.
+<mark>std::stringstream</mark> – This was the slowest by far. Not surprising, since stringstreams are known to be relatively inefficient due to their overhead in parsing and handling streams. The high standard deviation also suggests inconsistent performance, possibly due to internal memory allocations.
 
 <mark> std::atoi() </mark> – Much faster than stringstream, as expected. atoi() is a very basic function that doesn’t handle errors or extra checks, making it quite efficient. The deviation is relatively low, meaning it's consistently fast.
 
