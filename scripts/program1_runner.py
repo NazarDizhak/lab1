@@ -26,10 +26,10 @@ def run_test(progname, datafile, method, runs, clear_cache):
         
         if len(output) < 2:
             print("Error: Unexpected output format.")
+            print(output)
             sys.exit(1)
         
         exec_time = int(output[0])
-        print("Exac time:", exec_time)
         result_line = output[1]
         times.append(exec_time)
         
@@ -65,6 +65,15 @@ def compare_methods(method_times, output_file):
                     row.append(f"{p_value:.5f}")
             writer.writerow(row)
 
+def write_execution_stats(method_times, output_file):
+
+    with open(output_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Method", "Min", "Mean", "StdDev"])
+        
+        for method, times in method_times.items():
+            stats = compute_statistics(times)
+            writer.writerow([method, stats["min"], stats["mean"], stats["stddev"]])
 def main():
     if len(sys.argv) != 5:
         print("Usage: python3 progname_runner.py <datafile> <runs> <clear_cache> <output_csv>")
@@ -75,7 +84,7 @@ def main():
     clear_cache = bool(int(sys.argv[3]))
     output_csv = sys.argv[4]
     
-    progname = "bin/io_exe"
+    progname = "../bin/io_exe"
     methods = [1, 2, 3, 4, 5]
     
     method_times = {}
@@ -90,6 +99,7 @@ def main():
         print()
     
     compare_methods(method_times, output_csv)
+    write_execution_stats(method_times, "../data/test_stats.csv")
     
 if __name__ == "__main__":
     main()
