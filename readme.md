@@ -2,7 +2,7 @@
 
 # Lab work <mark>NUMBER</mark>: <mark>SHORT TOPIC</mark>
 Authors (team):<br> <mark>Orest Chupa - https://github.com/ratatuiii</mark><br> <mark>Nazar Dizhak - https://github.com/NazarDizhak</mark><br> <mark>Kostiantyn Stetsiuk - https://github.com/f1rset</mark><br>
-Variant: <mark>VARIANT SHOULD BE HERE</mark>
+Variant: <mark>none</mark>
 ## Prerequisites
 
 <mark>g++, cmake, python3. list of required libraries for python in requirements.txt</mark>
@@ -24,13 +24,12 @@ For program1 - "python3 program1_runner.py <datafile> <runs> <clear_cache> <outp
 
 For program2 - "python3 program2_runner.py <datafile> <runs> <output_csv>"
 
+<mark>Also, running these programs will result in creating the statistics of these runs in the data folder. It can be further used by compute_graph.py to create a graph that would be saved in the same folder for later use of your choice</mark>
 
-<mark>Note: if your project needs or generates any data, media and so on -- put them
-into the data folder</mark> 
 
 ### Important!
 
-<mark>WHAT ELSE SHOULD WE KNOW ABOUT YOUR WORK? (E.G. KNOWN ISSUES, BUGS, SPECIAL BEHAVIOR ETC)</mark>
+<mark>compute_graph.py is very prinitive, so any path and name changes of the output have to be changed manually inside the code itself</mark>
 
 ### Results
 
