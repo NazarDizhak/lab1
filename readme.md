@@ -49,9 +49,18 @@ This gets even better, although within possible deviation from the previous meth
 <mark>5. Using stream iterators for large files (Bad idea #1)</mark> <br>
 Surprisingly, this isn't as fast as expected (min: 1862 ms, mean: 1995.5 ms). While stream iterators might seem efficient, they can introduce unexpected overhead due to the way they handle input iterators. This could explain why it's slower than methods 3 and 4. Not really disappointing, considering it was named "bad idea".
 
-
 Here is the graph to visualize the results:
 ![graph1](images/program1_graph.png)
+
+
+
+<mark>As for the flushing, each method became slower. From first to fifth method in respective order - 620ms, 610ms,500ms, 400ms, 700ms</mark>
+Method 1 (while reading word-by-word into a vector): Slowed down significantly since frequent disk access would be required instead of buffering.
+Method 2 (reading whole file into a stringstream): Would also be impacted but slighlty less severely, since it already loads everything into memory at once.
+Method 3 (reading into a string, then splitting): Got slightly slower, if compared to itself witout flushing, as the initial read suffered from flushing, but splitting in-memory wouldn’t change.
+Method 4 (optimized memory reads with minimal copies): Was affected the least since it avoids unnecessary copies and works with pre-allocated memory.
+Method 5 (stream iterators): Became even worse since stream iterators already struggle with efficiency.
+
 
 <h2>Program 2 results</h2>
 <mark>1. std::stringstream</mark> – This was the slowest by far. Not surprising, since stringstreams are known to be relatively inefficient due to their overhead in parsing and handling streams. The high standard deviation also suggests inconsistent performance, possibly due to internal memory allocations.
