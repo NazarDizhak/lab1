@@ -54,7 +54,9 @@ Here is the graph to visualize the results:
 ![graph1](images/program1_graph.png)
 
 <h2>Program 2 results</h2>
+
 ![graph2](images/program2_graph.png)
+
 # Additional tasks
 <mark>IF APPLICABLE, LIST ALL THE EXTRA FEATURES YOU ADDED. PROVIDE DETAILS<mark>
 
