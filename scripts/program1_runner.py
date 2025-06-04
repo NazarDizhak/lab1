@@ -83,7 +83,7 @@ def main():
     clear_cache = bool(int(sys.argv[3]))
     output_csv = sys.argv[4]
     
-    progname = "../bin/io_exe"
+    progname = "../bin/cxx_perf_io"
     methods = [1, 2, 3, 4, 5]
     
     method_times = {}

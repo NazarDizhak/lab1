@@ -54,38 +54,38 @@ include(cmake/CompilerWarnings.cmake)
 ##########################################################
 
 #! Project main executable source compilation
-add_executable(io_exe cxx_perf_io.cpp
+add_executable(cxx_perf_io cxx_perf_io.cpp
                 programs/program1.cpp
                 programs/program1.hpp)
 
-add_executable(conv_exe cxx_perf_conv.cpp
+add_executable(cxx_perf_conv cxx_perf_conv.cpp
                 programs/program2.cpp
 				programs/program1.cpp)
 
 #! Put path to your project headers
-target_include_directories(io_exe PRIVATE options_parser)
-target_include_directories(conv_exe PRIVATE options_parser)
+target_include_directories(cxx_perf_io PRIVATE options_parser)
+target_include_directories(cxx_perf_conv PRIVATE options_parser)
 
 #! Add external packages
 # options_parser requires boost::program_options library
 find_package(Boost 1.71.0 COMPONENTS program_options system REQUIRED)
-target_include_directories(io_exe PRIVATE ${Boost_INCLUDE_DIR})
-target_include_directories(conv_exe PRIVATE ${Boost_INCLUDE_DIR})
+target_include_directories(cxx_perf_io PRIVATE ${Boost_INCLUDE_DIR})
+target_include_directories(cxx_perf_conv PRIVATE ${Boost_INCLUDE_DIR})
 
-target_link_libraries(io_exe Boost::program_options Boost::system)
-target_link_libraries(conv_exe Boost::program_options Boost::system)
+target_link_libraries(cxx_perf_io Boost::program_options Boost::system)
+target_link_libraries(cxx_perf_conv Boost::program_options Boost::system)
 
 ##########################################################
 # Fixed CMakeLists.txt part
 ##########################################################
 
 INSTALL(PROGRAMS
-		$<TARGET_FILE:io_exe> 
-        $<TARGET_FILE:conv_exe>
+		$<TARGET_FILE:cxx_perf_io> 
+        $<TARGET_FILE:cxx_perf_conv>
 		DESTINATION bin)
 
 # Define ALL_TARGETS variable to use in PVS and Sanitizers
-set(ALL_TARGETS io_exe conv_exe)
+set(ALL_TARGETS cxx_perf_io cxx_perf_conv)
 
 # Include CMake setup
 include(cmake/main-config.cmake)

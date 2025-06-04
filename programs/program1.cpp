@@ -15,7 +15,7 @@ std::vector<std::string> readFileIdiom(const std::string& file_path){
 //    }
 
     while (file >> word){
-        data.push_back(word);
+        data.emplace_back(word);
     }
 
     return data;
@@ -30,7 +30,7 @@ std::vector<std::string> readFileFull(const std::string& file_path){
     std::string word;
 
     while (ss >> word){
-        data.push_back(word);
+        data.emplace_back(word);
     }
     return data;
 }
@@ -46,11 +46,11 @@ std::vector<std::string> readFileFullStr(const std::string& file_path){
     while (pos < string.length()){
         size_t new_pos = string.find_first_of(" \t\n\r", pos);
         if (new_pos == std::string::npos){
-            data.push_back(string.substr(pos));
+            data.emplace_back(string.substr(pos));
             break;
         }
         else{
-            data.push_back(string.substr(pos, new_pos-pos));
+            data.emplace_back(string.substr(pos, new_pos-pos));
             pos = new_pos+1;
         }
     }
@@ -72,13 +72,13 @@ std::vector<std::string> readFileFullRLF(const std::string& file_path) {
     while (pos < str.length()){
         size_t new_pos = str.find_first_of(" \t\n\r", pos);
         if (new_pos == std::string::npos){
-            data.push_back(str.substr(pos));
+            data.emplace_back(str.substr(pos));
             break;
         }
-        data.push_back(str.substr(pos, new_pos-pos));
+        data.emplace_back(str.substr(pos, new_pos-pos));
         pos = new_pos+1;
     }
-//    data.push_back(str);
+//    data.emplace_back(str);
     return data;
 }
 
@@ -92,11 +92,11 @@ std::vector<std::string> readBadIdea1 (const std::string& file_path){
     while (pos < string.length()){
         size_t new_pos = string.find_first_of(" \t\n\r", pos);
         if (new_pos == std::string::npos){
-            data.push_back(string.substr(pos));
+            data.emplace_back(string.substr(pos));
             break;
         }
         else{
-            data.push_back(string.substr(pos, new_pos-pos));
+            data.emplace_back(string.substr(pos, new_pos-pos));
             pos = new_pos+1;
         }
     }

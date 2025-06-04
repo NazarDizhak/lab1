@@ -80,7 +80,7 @@ def main():
     runs = int(sys.argv[2])
     output_csv = sys.argv[3]
     
-    progname = "../bin/conv_exe"
+    progname = "../bin/cxx_perf_conv"
     methods = [1, 2, 3, 4, 5]
     
     method_times = {}
